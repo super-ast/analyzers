@@ -1,7 +1,7 @@
 # Compiling an analyzer
-  1. Clone this repository: `git clone https://bitbucket.org/hecrj/super_ast.git`
-  2. Change the current working directory to the repository location: `cd super_ast`
-  3. Initialize and download the repository submodules: `git submodule update --init`
+  1. Clone this repository: `git clone git@gitlab.com:super_ast/analyzers.git`
+  2. Change the current working directory to the repository location: `cd analyzers`
+  3. Initialize and download the repository submodules: `git submodule update --init --recursive`
   4. Create a `build` directory to keep things clean: `mkdir build`
   5. Change the current working directory to the `build` directory: `cd build`
   6. Run `cmake ..` to generate a `Makefile` of the analyzers.
