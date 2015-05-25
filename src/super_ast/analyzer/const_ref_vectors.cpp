@@ -3,6 +3,72 @@
 #include "super_ast.hpp"
 
 namespace super_ast {
+class FindIdentifier : public Visitor {
+public:
+  FindIdentifier(const std::string& name) : name_(name), found_(false) {
+
+  }
+
+  void Visit(const Node* node) {
+    if(!found_) {
+      node->AcceptChildren(*this);
+    }
+  }
+
+  void Visit(const Identifier* identifier) {
+    found_ = (identifier->value() == name_);
+  }
+
+  bool found() {
+    return found_;
+  }
+
+private:
+  std::string name_;
+  bool found_;
+};
+
+class CheckWrite : public Visitor {
+public:
+  CheckWrite(const std::string& name) : find_identifier(name), written_(false) {
+
+  }
+
+  void Visit(const Node* node) {
+    if(!written_) {
+      node->AcceptChildren(*this);
+    }
+  }
+
+  void Visit(const BinaryOperator* binary_operator) {
+    if(!written_ and IsAssignmentOperator(binary_operator)) {
+      find_identifier.Visit(&binary_operator->left());
+      written_ = find_identifier.found();
+    }
+  }
+
+  bool written() {
+    return written_;
+  }
+
+private:
+  FindIdentifier find_identifier;
+  bool written_;
+
+  bool IsAssignmentOperator(const BinaryOperator* binary_operator) {
+    BinaryOperator::Type type = binary_operator->type();
+
+    return
+        type == BinaryOperator::Type::ASSIGN_ADDITION ||
+        type == BinaryOperator::Type::ASSIGN_SUBTRACTION ||
+        type == BinaryOperator::Type::ASSIGN_MULTIPLICATION ||
+        type == BinaryOperator::Type::ASSIGN_DIVISION ||
+        type == BinaryOperator::Type::ASSIGN_MODULO ||
+        type == BinaryOperator::Type::ASSIGN_LSHIFT ||
+        type == BinaryOperator::Type::ASSIGN_RSHIFT;
+  }
+};
+
 class ConstRefVectors : public Visitor {
 public:
   ConstRefVectors() {
@@ -25,11 +91,17 @@ public:
           Report(*vector_parameter, "Vector parameter is constant but not passed by reference");
         }
       } else {
-        // Check function block for writes
+        CheckWrite check_write(vector_parameter->name());
+        check_write.Visit(&function_declaration->body());
+
+        if(!check_write.written()) {
+          Report(*vector_parameter, "Vector parameter could be constant");
+        }
       }
     }
   }
 
+private:
   void FilterByType(const std::vector<VariableDeclaration*>& variables, Type::Native type,
                     std::vector<VariableDeclaration*>& result) {
     for(VariableDeclaration* variable : variables) {

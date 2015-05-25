@@ -64,6 +64,92 @@
 
         ]
       }
+    },
+    {
+      "id": 13,
+      "type": "function-declaration",
+      "name": "print_vector",
+      "return-type": {
+        "id": 14,
+        "name": "void"
+      },
+      "parameters": [
+        {
+          "id": 15,
+          "type": "variable-declaration",
+          "name": "v",
+          "is_constant": false,
+          "is_reference": false,
+          "data-type": {
+            "id": 16,
+            "name": "vector",
+            "data-type": {
+              "id": 17,
+              "name": "int"
+            }
+          }
+        }
+      ],
+      "block": {
+        "id": 18,
+        "statements": [
+
+        ]
+      }
+    },
+    {
+      "id": 19,
+      "type": "function-declaration",
+      "name": "print_vector",
+      "return-type": {
+        "id": 20,
+        "name": "void"
+      },
+      "parameters": [
+        {
+          "id": 21,
+          "type": "variable-declaration",
+          "name": "v",
+          "is_constant": false,
+          "is_reference": false,
+          "data-type": {
+            "id": 22,
+            "name": "vector",
+            "data-type": {
+              "id": 23,
+              "name": "int"
+            }
+          }
+        }
+      ],
+      "block": {
+        "id": 24,
+        "statements": [
+          {
+            "id": 25,
+            "type": "+=",
+            "left": {
+              "id": 26,
+              "type": "[]",
+              "left": {
+                "id": 27,
+                "type": "identifier",
+                "value": "v"
+              },
+              "right": {
+                "id": 28,
+                "type": "int",
+                "value": 0
+              }
+            },
+            "right": {
+              "id": 29,
+              "type": "int",
+              "value": 2
+            }
+          }
+        ]
+      }
     }
   ]
 }
