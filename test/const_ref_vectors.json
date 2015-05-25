@@ -1,0 +1,69 @@
+{
+  "id": 0,
+  "statements": [
+    {
+      "id": 1,
+      "type": "function-declaration",
+      "name": "print_vector",
+      "return-type": {
+        "id": 2,
+        "name": "void"
+      },
+      "parameters": [
+        {
+          "id": 3,
+          "type": "variable-declaration",
+          "name": "v",
+          "is_constant": true,
+          "is_reference": true,
+          "data-type": {
+            "id": 4,
+            "name": "vector",
+            "data-type": {
+              "id": 5,
+              "name": "int"
+            }
+          }
+        }
+      ],
+      "block": {
+        "id": 6,
+        "statements": [
+
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "function-declaration",
+      "name": "print_vector",
+      "return-type": {
+        "id": 8,
+        "name": "void"
+      },
+      "parameters": [
+        {
+          "id": 9,
+          "type": "variable-declaration",
+          "name": "v",
+          "is_constant": true,
+          "is_reference": false,
+          "data-type": {
+            "id": 10,
+            "name": "vector",
+            "data-type": {
+              "id": 11,
+              "name": "int"
+            }
+          }
+        }
+      ],
+      "block": {
+        "id": 12,
+        "statements": [
+
+        ]
+      }
+    }
+  ]
+}
