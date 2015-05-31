@@ -1,0 +1,107 @@
+{
+  "id": 0,
+  "statements": [
+    {
+      "id": 1,
+      "type": "conditional",
+      "condition": {
+        "id": 2,
+        "type": "<",
+        "left": {
+          "id": 3,
+          "type": "identifier",
+          "value": "a"
+        },
+        "right": {
+          "id": 4,
+          "type": "int",
+          "value": 1
+        }
+      },
+      "then": {
+        "id": 5,
+        "statements": [
+          {
+            "id": 6,
+            "type": "return",
+            "expression": {
+              "id": 7,
+              "type": "bool",
+              "value": true
+            }
+          }
+        ]
+      },
+      "else": {
+        "id": 8,
+        "statements": [
+          {
+            "id": 9,
+            "type": "return",
+            "expression": {
+              "id": 10,
+              "type": "bool",
+              "value": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "conditional",
+      "condition": {
+        "id": 12,
+        "type": "<",
+        "left": {
+          "id": 13,
+          "type": "identifier",
+          "value": "a"
+        },
+        "right": {
+          "id": 14,
+          "type": "int",
+          "value": 1
+        }
+      },
+      "then": {
+        "id": 15,
+        "statements": [
+          {
+            "id": 16,
+            "name": "b",
+            "type": "variable-declaration",
+            "data-type": {
+              "id": 17,
+              "name": "bool"
+            },
+            "init": {
+              "id": 18,
+              "type": "bool",
+              "value": true
+            }
+          }
+        ]
+      },
+      "else": {
+        "id": 19,
+        "statements": [
+          {
+            "id": 20,
+            "type": "variable-declaration",
+            "name": "b",
+            "data-type": {
+              "id": 21,
+              "name": "bool"
+            },
+            "init": {
+              "id": 22,
+              "type": "bool",
+              "value": false
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
