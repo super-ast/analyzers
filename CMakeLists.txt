@@ -9,6 +9,10 @@ include_directories(
     ${SUPER_AST_BASE_INCLUDE_DIRS}
 )
 
+set(SOURCE_FILES
+    src/super_ast/analyzer/error.cpp
+)
+
 # Override add_executable macro to link libraries automatically
 macro (add_executable _name)
     _add_executable(${ARGV})
