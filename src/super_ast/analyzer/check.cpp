@@ -13,12 +13,13 @@
 #include "rapidjson/document.h"
 
 void help() {
-    std::cout << "check" << " " << "in_file out_file [args]\n";
+    std::cout << "check" << " " << "in_file [args]\n";
     std::cout << "--test\n" << "\truns all tests\n";
     std::cout << "--recursivity\n" << "\truns recursivity check, input is a string of the form" <<
                  " (func_signature depth base_cases)+\n\texample: fibonacci 1 2\n\tdepth 0 is the min\n";
     std::cout << "--fors\n\tchecks for simple for conditions\n";
     std::cout << "--dead-assign\n\tchecks for dead assignations\n";
+    std::cout << "--local-decl\n\tchecks for local declarations\n";
     std::cout << "--variable-init\n\tchecks for variable initialization errors\n";
 }
 
