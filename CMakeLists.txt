@@ -35,6 +35,10 @@ add_executable(check src/super_ast/analyzer/check.cpp
   src/super_ast/analyzer/function_ids.cpp
   src/super_ast/analyzer/call_graph.cpp
   src/super_ast/analyzer/simple_fors.cpp
+  src/super_ast/analyzer/liveness.cpp
+  src/super_ast/analyzer/dead_assignation.cpp
+  src/super_ast/analyzer/local_declaration.cpp
+  src/super_ast/analyzer/variable_initialization.cpp
 )
 add_executable(simple_fors src/super_ast/analyzer/main_simple_fors.cpp
   src/super_ast/analyzer/simple_fors.cpp

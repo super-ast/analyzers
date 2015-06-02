@@ -2,8 +2,14 @@
 #include <sstream>
 #include <vector>
 #include <fstream>
+
 #include "recursivity.cpp"
 #include "simple_fors.hpp"
+#include "liveness.hpp"
+#include "dead_assignation.hpp"
+#include "local_declaration.hpp"
+#include "variable_initialization.hpp"
+
 #include "rapidjson/document.h"
 
 void help() {
@@ -12,7 +18,8 @@ void help() {
     std::cout << "--recursivity\n" << "\truns recursivity check, input is a string of the form" <<
                  " (func_signature depth base_cases)+\n\texample: fibonacci 1 2\n\tdepth 0 is the min\n";
     std::cout << "--fors\n\tchecks for simple for conditions\n";
-
+    std::cout << "--dead-assign\n\tchecks for dead assignations\n";
+    std::cout << "--variable-init\n\tchecks for variable initialization errors\n";
 }
 
 rapidjson::Value error_to_json(const Error &e, rapidjson::Document doc) {
@@ -92,17 +99,38 @@ int main(int argc, char** argv) {
             std::vector<Error> errors = simple_fors.GetErrors();
             print_errors("simple fors", errors);
 
-        } else if (args[i] == "--conditionals") {
+        } else if (args[i] == "--dead-assig") {
+            super_ast::Liveness liveness;
+            ast->Accept(liveness);
+            super_ast::DeadAssignation dead_assignation(&liveness);
+            ast->Accept(dead_assignation);
+  
+            std::vector<Error> errors = dead_assignation.get_errors();
+            print_errors("dead assignations", errors);
+
+        } else if (args[i] == "--local-decl") {
+            super_ast::Liveness liveness;
+            ast->Accept(liveness);
+
+            super_ast::LocalDeclaration local_declaration(&liveness);
+            ast->Accept(local_declaration);
+  
+            std::vector<Error> errors = local_declaration.get_errors();
+            print_errors("local declarations", errors);
             
+
+        } else if (args[i] == "--variable-init") {
+            super_ast::VariableInitialization var_ini;
+            ast->Accept(var_ini);
+
+            std::vector<Error> errors = var_ini.get_errors();
+            print_errors("variable initialization", errors);
 
         } else if (args[i] == "--help") {
             help();
             exit(0);
-
-        } else if (args[i] == "--conditionals") {
-
-
         }
+
     }
 
 
