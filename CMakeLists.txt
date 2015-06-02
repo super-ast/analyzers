@@ -7,11 +7,17 @@ add_subdirectory(lib/base)
 
 include_directories(
     ${SUPER_AST_BASE_INCLUDE_DIRS}
+    vendor/rapidjson/include
 )
 
 set(SOURCE_FILES
     src/super_ast/analyzer/error.cpp
 )
+
+#set(gflags_SHARED    FALSE)
+#set(gflags_NOTHREADS FALSE)
+
+#find_package(gflags REQUIRED)
 
 # Override add_executable macro to link libraries automatically
 macro (add_executable _name)
@@ -25,8 +31,12 @@ add_executable(printer src/super_ast/analyzer/printer.cpp)
 add_executable(grapher src/super_ast/analyzer/grapher.cpp)
 add_executable(useless_conditionals src/super_ast/analyzer/useless_conditionals.cpp)
 add_executable(const_ref_vectors src/super_ast/analyzer/const_ref_vectors.cpp)
+add_executable(check src/super_ast/analyzer/check.cpp
+  src/super_ast/analyzer/function_ids.cpp
+  src/super_ast/analyzer/call_graph.cpp
+  src/super_ast/analyzer/simple_fors.cpp
+)
 add_executable(simple_fors src/super_ast/analyzer/main_simple_fors.cpp
-  # dependencies
   src/super_ast/analyzer/simple_fors.cpp
 )
 add_executable(variable_initialization src/super_ast/analyzer/main_variable_initialization.cpp
