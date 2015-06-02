@@ -1,0 +1,325 @@
+{
+    "id": 0,
+    "statements": [
+        {
+            "id": 1,
+            "line": 1,
+            "column": 1,
+            "type": "function-declaration",
+            "name": "sum",
+            "return-type": {
+                "id": 2,
+                "name": "int"
+            },
+            "parameters": [
+                {
+                    "id": 3,
+                    "line": 1,
+                    "column": 9,
+                    "name": "a",
+                    "data-type": {
+                        "id": 4,
+                        "name": "int"
+                    },
+                    "is-reference": false,
+                    "is-const": false
+                },
+                {
+                    "id": 5,
+                    "line": 1,
+                    "column": 16,
+                    "name": "b",
+                    "data-type": {
+                        "id": 6,
+                        "name": "int"
+                    },
+                    "is-reference": false,
+                    "is-const": false
+                }
+            ],
+            "block": {
+                "id": 16,
+                "statements": [
+                    {
+                        "id": 7,
+                        "line": 2,
+                        "column": 3,
+                        "type": "variable-declaration",
+                        "name": "res",
+                        "data-type": {
+                            "id": 8,
+                            "name": "int"
+                        },
+                        "is-reference": false,
+                        "is-const": false
+                    },
+                    {
+                        "id": 13,
+                        "type": "=",
+                        "left": {
+                            "type": "identifier",
+                            "value": "res",
+                            "id": 9,
+                            "line": 3,
+                            "column": 3
+                        },
+                        "right": {
+                            "id": 12,
+                            "type": "+",
+                            "left": {
+                                "type": "identifier",
+                                "value": "a",
+                                "id": 10,
+                                "line": 3,
+                                "column": 9
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "b",
+                                "id": 11,
+                                "line": 3,
+                                "column": 13
+                            },
+                            "line": 3,
+                            "column": 9
+                        },
+                        "line": 3,
+                        "column": 3
+                    },
+                    {
+                        "id": 14,
+                        "line": 4,
+                        "column": 3,
+                        "type": "return",
+                        "expression": {
+                            "type": "identifier",
+                            "value": "res",
+                            "id": 15,
+                            "line": 4,
+                            "column": 10
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 17,
+            "line": 7,
+            "column": 1,
+            "type": "function-declaration",
+            "name": "main",
+            "return-type": {
+                "id": 18,
+                "name": "int"
+            },
+            "parameters": [],
+            "block": {
+                "id": 49,
+                "statements": [
+                    {
+                        "id": 19,
+                        "line": 8,
+                        "column": 3,
+                        "type": "variable-declaration",
+                        "name": "a",
+                        "data-type": {
+                            "id": 20,
+                            "name": "int"
+                        },
+                        "is-reference": false,
+                        "is-const": false
+                    },
+                    {
+                        "id": 23,
+                        "type": "=",
+                        "left": {
+                            "type": "identifier",
+                            "value": "a",
+                            "id": 21,
+                            "line": 9,
+                            "column": 3
+                        },
+                        "right": {
+                            "type": "int",
+                            "value": 10,
+                            "id": 22,
+                            "line": 9,
+                            "column": 7
+                        },
+                        "line": 9,
+                        "column": 3
+                    },
+                    {
+                        "id": 24,
+                        "line": 10,
+                        "column": 3,
+                        "type": "variable-declaration",
+                        "name": "b",
+                        "data-type": {
+                            "id": 25,
+                            "name": "int"
+                        },
+                        "is-reference": false,
+                        "is-const": false,
+                        "init": {
+                            "type": "int",
+                            "value": 20,
+                            "id": 26,
+                            "line": 10,
+                            "column": 11
+                        }
+                    },
+                    {
+                        "id": 27,
+                        "line": 11,
+                        "column": 3,
+                        "type": "variable-declaration",
+                        "name": "result",
+                        "data-type": {
+                            "id": 28,
+                            "name": "int"
+                        },
+                        "is-reference": false,
+                        "is-const": false
+                    },
+                    {
+                        "id": 33,
+                        "type": "=",
+                        "left": {
+                            "type": "identifier",
+                            "value": "result",
+                            "id": 29,
+                            "line": 12,
+                            "column": 3
+                        },
+                        "right": {
+                            "id": 30,
+                            "line": 12,
+                            "column": 12,
+                            "type": "function-call",
+                            "name": "sum",
+                            "arguments": [
+                                {
+                                    "type": "identifier",
+                                    "value": "a",
+                                    "id": 31,
+                                    "line": 12,
+                                    "column": 16
+                                },
+                                {
+                                    "type": "identifier",
+                                    "value": "b",
+                                    "id": 32,
+                                    "line": 12,
+                                    "column": 19
+                                }
+                            ]
+                        },
+                        "line": 12,
+                        "column": 3
+                    },
+                    {
+                        "id": 34,
+                        "line": 13,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 35,
+                            "line": 13,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 36,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 37,
+                                "line": 13,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 40,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 38,
+                                "line": 13,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "result",
+                                "id": 39,
+                                "line": 13,
+                                "column": 23
+                            },
+                            "line": 13,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 42,
+                            "line": 13,
+                            "column": 31,
+                            "type": "_++",
+                            "expression": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 41,
+                                "line": 13,
+                                "column": 31
+                            }
+                        },
+                        "block": {
+                            "id": 48,
+                            "statements": [
+                                {
+                                    "id": 43,
+                                    "line": 14,
+                                    "column": 5,
+                                    "type": "variable-declaration",
+                                    "name": "c",
+                                    "data-type": {
+                                        "id": 44,
+                                        "name": "int"
+                                    },
+                                    "is-reference": false,
+                                    "is-const": false,
+                                    "init": {
+                                        "id": 45,
+                                        "line": 14,
+                                        "column": 13,
+                                        "type": "function-call",
+                                        "name": "sum",
+                                        "arguments": [
+                                            {
+                                                "type": "identifier",
+                                                "value": "a",
+                                                "id": 46,
+                                                "line": 14,
+                                                "column": 17
+                                            },
+                                            {
+                                                "type": "identifier",
+                                                "value": "i",
+                                                "id": 47,
+                                                "line": 14,
+                                                "column": 20
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
