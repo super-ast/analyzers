@@ -1,0 +1,2002 @@
+{
+    "id": 0,
+    "statements": [
+        {
+            "id": 1,
+            "line": 4,
+            "column": 1,
+            "type": "function-declaration",
+            "name": "main",
+            "return-type": {
+                "id": 2,
+                "name": "int"
+            },
+            "parameters": [],
+            "block": {
+                "id": 312,
+                "statements": [
+                    {
+                        "id": 3,
+                        "line": 5,
+                        "column": 3,
+                        "type": "variable-declaration",
+                        "name": "x",
+                        "data-type": {
+                            "id": 4,
+                            "name": "int"
+                        },
+                        "is-reference": false,
+                        "is-const": false
+                    },
+                    {
+                        "id": 5,
+                        "line": 6,
+                        "column": 3,
+                        "type": "variable-declaration",
+                        "name": "n",
+                        "data-type": {
+                            "id": 6,
+                            "name": "int"
+                        },
+                        "is-reference": false,
+                        "is-const": false,
+                        "init": {
+                            "type": "int",
+                            "value": 1,
+                            "id": 7,
+                            "line": 6,
+                            "column": 11
+                        }
+                    },
+                    {
+                        "id": 8,
+                        "line": 7,
+                        "column": 3,
+                        "type": "variable-declaration",
+                        "name": "k",
+                        "data-type": {
+                            "id": 9,
+                            "name": "int"
+                        },
+                        "is-reference": false,
+                        "is-const": false,
+                        "init": {
+                            "type": "int",
+                            "value": 1,
+                            "id": 10,
+                            "line": 7,
+                            "column": 11
+                        }
+                    },
+                    {
+                        "id": 11,
+                        "line": 11,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 12,
+                            "line": 11,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 13,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 14,
+                                "line": 11,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 17,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 15,
+                                "line": 11,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 16,
+                                "line": 11,
+                                "column": 23
+                            },
+                            "line": 11,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 19,
+                            "line": 11,
+                            "column": 26,
+                            "type": "++_",
+                            "expression": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 18,
+                                "line": 11,
+                                "column": 28
+                            }
+                        },
+                        "block": {
+                            "id": 20,
+                            "statements": []
+                        }
+                    },
+                    {
+                        "id": 21,
+                        "line": 12,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 22,
+                            "line": 12,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 23,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 24,
+                                "line": 12,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 27,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 25,
+                                "line": 12,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 26,
+                                "line": 12,
+                                "column": 23
+                            },
+                            "line": 12,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 29,
+                            "line": 12,
+                            "column": 26,
+                            "type": "_--",
+                            "expression": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 28,
+                                "line": 12,
+                                "column": 26
+                            }
+                        },
+                        "block": {
+                            "id": 30,
+                            "statements": []
+                        }
+                    },
+                    {
+                        "id": 31,
+                        "line": 13,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 34,
+                            "type": "=",
+                            "left": {
+                                "type": "identifier",
+                                "value": "x",
+                                "id": 32,
+                                "line": 13,
+                                "column": 8
+                            },
+                            "right": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 33,
+                                "line": 13,
+                                "column": 12
+                            },
+                            "line": 13,
+                            "column": 8
+                        },
+                        "condition": {
+                            "id": 37,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "x",
+                                "id": 35,
+                                "line": 13,
+                                "column": 15
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 36,
+                                "line": 13,
+                                "column": 19
+                            },
+                            "line": 13,
+                            "column": 15
+                        },
+                        "post": {
+                            "id": 39,
+                            "line": 13,
+                            "column": 22,
+                            "type": "++_",
+                            "expression": {
+                                "type": "identifier",
+                                "value": "x",
+                                "id": 38,
+                                "line": 13,
+                                "column": 24
+                            }
+                        },
+                        "block": {
+                            "id": 40,
+                            "statements": []
+                        }
+                    },
+                    {
+                        "id": 41,
+                        "line": 15,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 42,
+                            "line": 15,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 43,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 44,
+                                "line": 15,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 47,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 45,
+                                "line": 15,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 46,
+                                "line": 15,
+                                "column": 23
+                            },
+                            "line": 15,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 50,
+                            "type": "+=",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 48,
+                                "line": 15,
+                                "column": 26
+                            },
+                            "right": {
+                                "type": "int",
+                                "value": 3,
+                                "id": 49,
+                                "line": 15,
+                                "column": 31
+                            },
+                            "line": 15,
+                            "column": 26
+                        },
+                        "block": {
+                            "id": 51,
+                            "statements": []
+                        }
+                    },
+                    {
+                        "id": 52,
+                        "line": 16,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 53,
+                            "line": 16,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 54,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 55,
+                                "line": 16,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 58,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 56,
+                                "line": 16,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 57,
+                                "line": 16,
+                                "column": 23
+                            },
+                            "line": 16,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 63,
+                            "type": "=",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 59,
+                                "line": 16,
+                                "column": 26
+                            },
+                            "right": {
+                                "id": 62,
+                                "type": "+",
+                                "left": {
+                                    "type": "identifier",
+                                    "value": "i",
+                                    "id": 60,
+                                    "line": 16,
+                                    "column": 30
+                                },
+                                "right": {
+                                    "type": "int",
+                                    "value": 3,
+                                    "id": 61,
+                                    "line": 16,
+                                    "column": 34
+                                },
+                                "line": 16,
+                                "column": 30
+                            },
+                            "line": 16,
+                            "column": 26
+                        },
+                        "block": {
+                            "id": 64,
+                            "statements": []
+                        }
+                    },
+                    {
+                        "id": 65,
+                        "line": 17,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 66,
+                            "line": 17,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 67,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 68,
+                                "line": 17,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 71,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 69,
+                                "line": 17,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 70,
+                                "line": 17,
+                                "column": 23
+                            },
+                            "line": 17,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 76,
+                            "type": "=",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 72,
+                                "line": 17,
+                                "column": 26
+                            },
+                            "right": {
+                                "id": 75,
+                                "type": "+",
+                                "left": {
+                                    "type": "int",
+                                    "value": 3,
+                                    "id": 73,
+                                    "line": 17,
+                                    "column": 30
+                                },
+                                "right": {
+                                    "type": "identifier",
+                                    "value": "i",
+                                    "id": 74,
+                                    "line": 17,
+                                    "column": 34
+                                },
+                                "line": 17,
+                                "column": 30
+                            },
+                            "line": 17,
+                            "column": 26
+                        },
+                        "block": {
+                            "id": 77,
+                            "statements": []
+                        }
+                    },
+                    {
+                        "id": 78,
+                        "line": 18,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 79,
+                            "line": 18,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 80,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 81,
+                                "line": 18,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 84,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 82,
+                                "line": 18,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 83,
+                                "line": 18,
+                                "column": 23
+                            },
+                            "line": 18,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 87,
+                            "type": "+=",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 85,
+                                "line": 18,
+                                "column": 26
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "k",
+                                "id": 86,
+                                "line": 18,
+                                "column": 31
+                            },
+                            "line": 18,
+                            "column": 26
+                        },
+                        "block": {
+                            "id": 88,
+                            "statements": []
+                        }
+                    },
+                    {
+                        "id": 89,
+                        "line": 19,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 90,
+                            "line": 19,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 91,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 92,
+                                "line": 19,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 95,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 93,
+                                "line": 19,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 94,
+                                "line": 19,
+                                "column": 23
+                            },
+                            "line": 19,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 98,
+                            "type": "+=",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 96,
+                                "line": 19,
+                                "column": 26
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "k",
+                                "id": 97,
+                                "line": 19,
+                                "column": 31
+                            },
+                            "line": 19,
+                            "column": 26
+                        },
+                        "block": {
+                            "id": 102,
+                            "statements": [
+                                {
+                                    "id": 101,
+                                    "type": "+=",
+                                    "left": {
+                                        "type": "identifier",
+                                        "value": "x",
+                                        "id": 99,
+                                        "line": 20,
+                                        "column": 5
+                                    },
+                                    "right": {
+                                        "type": "identifier",
+                                        "value": "n",
+                                        "id": 100,
+                                        "line": 20,
+                                        "column": 10
+                                    },
+                                    "line": 20,
+                                    "column": 5
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": 103,
+                        "line": 22,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 104,
+                            "line": 22,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 105,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 106,
+                                "line": 22,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 109,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 107,
+                                "line": 22,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 108,
+                                "line": 22,
+                                "column": 23
+                            },
+                            "line": 22,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 112,
+                            "type": "+=",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 110,
+                                "line": 22,
+                                "column": 26
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "k",
+                                "id": 111,
+                                "line": 22,
+                                "column": 31
+                            },
+                            "line": 22,
+                            "column": 26
+                        },
+                        "block": {
+                            "id": 117,
+                            "statements": [
+                                {
+                                    "id": 116,
+                                    "type": "+=",
+                                    "left": {
+                                        "type": "identifier",
+                                        "value": "x",
+                                        "id": 113,
+                                        "line": 23,
+                                        "column": 5
+                                    },
+                                    "right": {
+                                        "id": 115,
+                                        "line": 23,
+                                        "column": 10,
+                                        "type": "neg",
+                                        "expression": {
+                                            "type": "identifier",
+                                            "value": "k",
+                                            "id": 114,
+                                            "line": 23,
+                                            "column": 11
+                                        }
+                                    },
+                                    "line": 23,
+                                    "column": 5
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": 118,
+                        "line": 25,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 119,
+                            "line": 25,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 120,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 121,
+                                "line": 25,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 124,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 122,
+                                "line": 25,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 123,
+                                "line": 25,
+                                "column": 23
+                            },
+                            "line": 25,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 129,
+                            "type": "=",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 125,
+                                "line": 25,
+                                "column": 26
+                            },
+                            "right": {
+                                "id": 128,
+                                "type": "+",
+                                "left": {
+                                    "type": "identifier",
+                                    "value": "i",
+                                    "id": 126,
+                                    "line": 25,
+                                    "column": 30
+                                },
+                                "right": {
+                                    "type": "identifier",
+                                    "value": "k",
+                                    "id": 127,
+                                    "line": 25,
+                                    "column": 34
+                                },
+                                "line": 25,
+                                "column": 30
+                            },
+                            "line": 25,
+                            "column": 26
+                        },
+                        "block": {
+                            "id": 130,
+                            "statements": []
+                        }
+                    },
+                    {
+                        "id": 131,
+                        "line": 26,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 132,
+                            "line": 26,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 133,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 134,
+                                "line": 26,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 137,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 135,
+                                "line": 26,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 136,
+                                "line": 26,
+                                "column": 23
+                            },
+                            "line": 26,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 142,
+                            "type": "=",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 138,
+                                "line": 26,
+                                "column": 26
+                            },
+                            "right": {
+                                "id": 141,
+                                "type": "+",
+                                "left": {
+                                    "type": "identifier",
+                                    "value": "k",
+                                    "id": 139,
+                                    "line": 26,
+                                    "column": 30
+                                },
+                                "right": {
+                                    "type": "identifier",
+                                    "value": "i",
+                                    "id": 140,
+                                    "line": 26,
+                                    "column": 34
+                                },
+                                "line": 26,
+                                "column": 30
+                            },
+                            "line": 26,
+                            "column": 26
+                        },
+                        "block": {
+                            "id": 143,
+                            "statements": []
+                        }
+                    },
+                    {
+                        "id": 144,
+                        "line": 28,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 145,
+                            "line": 28,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 146,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 147,
+                                "line": 28,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 150,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 148,
+                                "line": 28,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 149,
+                                "line": 28,
+                                "column": 23
+                            },
+                            "line": 28,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 152,
+                            "line": 28,
+                            "column": 26,
+                            "type": "++_",
+                            "expression": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 151,
+                                "line": 28,
+                                "column": 28
+                            }
+                        },
+                        "block": {
+                            "id": 164,
+                            "statements": [
+                                {
+                                    "id": 153,
+                                    "line": 29,
+                                    "column": 5,
+                                    "type": "for",
+                                    "init": {
+                                        "id": 154,
+                                        "line": 29,
+                                        "column": 10,
+                                        "type": "variable-declaration",
+                                        "name": "j",
+                                        "data-type": {
+                                            "id": 155,
+                                            "name": "int"
+                                        },
+                                        "is-reference": false,
+                                        "is-const": false,
+                                        "init": {
+                                            "type": "int",
+                                            "value": 0,
+                                            "id": 156,
+                                            "line": 29,
+                                            "column": 18
+                                        }
+                                    },
+                                    "condition": {
+                                        "id": 159,
+                                        "type": "<",
+                                        "left": {
+                                            "type": "identifier",
+                                            "value": "j",
+                                            "id": 157,
+                                            "line": 29,
+                                            "column": 21
+                                        },
+                                        "right": {
+                                            "type": "identifier",
+                                            "value": "n",
+                                            "id": 158,
+                                            "line": 29,
+                                            "column": 25
+                                        },
+                                        "line": 29,
+                                        "column": 21
+                                    },
+                                    "post": {
+                                        "id": 162,
+                                        "type": "+=",
+                                        "left": {
+                                            "type": "identifier",
+                                            "value": "j",
+                                            "id": 160,
+                                            "line": 29,
+                                            "column": 28
+                                        },
+                                        "right": {
+                                            "type": "identifier",
+                                            "value": "i",
+                                            "id": 161,
+                                            "line": 29,
+                                            "column": 33
+                                        },
+                                        "line": 29,
+                                        "column": 28
+                                    },
+                                    "block": {
+                                        "id": 163,
+                                        "statements": []
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": 165,
+                        "line": 34,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 166,
+                            "line": 34,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 167,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 168,
+                                "line": 34,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 175,
+                            "type": "and",
+                            "left": {
+                                "id": 171,
+                                "type": "<",
+                                "left": {
+                                    "type": "identifier",
+                                    "value": "i",
+                                    "id": 169,
+                                    "line": 34,
+                                    "column": 19
+                                },
+                                "right": {
+                                    "type": "identifier",
+                                    "value": "n",
+                                    "id": 170,
+                                    "line": 34,
+                                    "column": 23
+                                },
+                                "line": 34,
+                                "column": 19
+                            },
+                            "right": {
+                                "id": 174,
+                                "type": "<",
+                                "left": {
+                                    "type": "identifier",
+                                    "value": "i",
+                                    "id": 172,
+                                    "line": 34,
+                                    "column": 28
+                                },
+                                "right": {
+                                    "type": "identifier",
+                                    "value": "n",
+                                    "id": 173,
+                                    "line": 34,
+                                    "column": 32
+                                },
+                                "line": 34,
+                                "column": 28
+                            },
+                            "line": 34,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 177,
+                            "line": 34,
+                            "column": 35,
+                            "type": "++_",
+                            "expression": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 176,
+                                "line": 34,
+                                "column": 37
+                            }
+                        },
+                        "block": {
+                            "id": 178,
+                            "statements": []
+                        }
+                    },
+                    {
+                        "id": 179,
+                        "line": 35,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 180,
+                            "line": 35,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 181,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 182,
+                                "line": 35,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 189,
+                            "type": "and",
+                            "left": {
+                                "id": 185,
+                                "type": "<",
+                                "left": {
+                                    "type": "identifier",
+                                    "value": "i",
+                                    "id": 183,
+                                    "line": 35,
+                                    "column": 19
+                                },
+                                "right": {
+                                    "type": "identifier",
+                                    "value": "n",
+                                    "id": 184,
+                                    "line": 35,
+                                    "column": 23
+                                },
+                                "line": 35,
+                                "column": 19
+                            },
+                            "right": {
+                                "id": 188,
+                                "type": ">=",
+                                "left": {
+                                    "type": "identifier",
+                                    "value": "i",
+                                    "id": 186,
+                                    "line": 35,
+                                    "column": 28
+                                },
+                                "right": {
+                                    "type": "int",
+                                    "value": 0,
+                                    "id": 187,
+                                    "line": 35,
+                                    "column": 33
+                                },
+                                "line": 35,
+                                "column": 28
+                            },
+                            "line": 35,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 191,
+                            "line": 35,
+                            "column": 36,
+                            "type": "--_",
+                            "expression": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 190,
+                                "line": 35,
+                                "column": 38
+                            }
+                        },
+                        "block": {
+                            "id": 192,
+                            "statements": []
+                        }
+                    },
+                    {
+                        "id": 193,
+                        "line": 38,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 194,
+                            "line": 38,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 195,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 196,
+                                "line": 38,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 199,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 197,
+                                "line": 38,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 198,
+                                "line": 38,
+                                "column": 23
+                            },
+                            "line": 38,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 201,
+                            "line": 38,
+                            "column": 26,
+                            "type": "++_",
+                            "expression": {
+                                "type": "identifier",
+                                "value": "x",
+                                "id": 200,
+                                "line": 38,
+                                "column": 28
+                            }
+                        },
+                        "block": {
+                            "id": 202,
+                            "statements": []
+                        }
+                    },
+                    {
+                        "id": 203,
+                        "line": 41,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 204,
+                            "line": 41,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 205,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 206,
+                                "line": 41,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 209,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 207,
+                                "line": 41,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 208,
+                                "line": 41,
+                                "column": 23
+                            },
+                            "line": 41,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 211,
+                            "line": 41,
+                            "column": 26,
+                            "type": "++_",
+                            "expression": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 210,
+                                "line": 41,
+                                "column": 28
+                            }
+                        },
+                        "block": {
+                            "id": 214,
+                            "statements": [
+                                {
+                                    "id": 213,
+                                    "line": 42,
+                                    "column": 5,
+                                    "type": "++_",
+                                    "expression": {
+                                        "type": "identifier",
+                                        "value": "i",
+                                        "id": 212,
+                                        "line": 42,
+                                        "column": 7
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": 215,
+                        "line": 44,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 216,
+                            "line": 44,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 217,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 218,
+                                "line": 44,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 221,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 219,
+                                "line": 44,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 220,
+                                "line": 44,
+                                "column": 23
+                            },
+                            "line": 44,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 223,
+                            "line": 44,
+                            "column": 26,
+                            "type": "++_",
+                            "expression": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 222,
+                                "line": 44,
+                                "column": 28
+                            }
+                        },
+                        "block": {
+                            "id": 227,
+                            "statements": [
+                                {
+                                    "id": 226,
+                                    "type": "=",
+                                    "left": {
+                                        "type": "identifier",
+                                        "value": "i",
+                                        "id": 224,
+                                        "line": 45,
+                                        "column": 5
+                                    },
+                                    "right": {
+                                        "type": "identifier",
+                                        "value": "x",
+                                        "id": 225,
+                                        "line": 45,
+                                        "column": 9
+                                    },
+                                    "line": 45,
+                                    "column": 5
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": 228,
+                        "line": 47,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 229,
+                            "line": 47,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 230,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 231,
+                                "line": 47,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 234,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 232,
+                                "line": 47,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 233,
+                                "line": 47,
+                                "column": 23
+                            },
+                            "line": 47,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 236,
+                            "line": 47,
+                            "column": 26,
+                            "type": "++_",
+                            "expression": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 235,
+                                "line": 47,
+                                "column": 28
+                            }
+                        },
+                        "block": {
+                            "id": 240,
+                            "statements": [
+                                {
+                                    "id": 239,
+                                    "type": "+=",
+                                    "left": {
+                                        "type": "identifier",
+                                        "value": "i",
+                                        "id": 237,
+                                        "line": 48,
+                                        "column": 5
+                                    },
+                                    "right": {
+                                        "type": "int",
+                                        "value": 1,
+                                        "id": 238,
+                                        "line": 48,
+                                        "column": 10
+                                    },
+                                    "line": 48,
+                                    "column": 5
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": 241,
+                        "line": 50,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 242,
+                            "line": 50,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 243,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 244,
+                                "line": 50,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 247,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 245,
+                                "line": 50,
+                                "column": 18
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 246,
+                                "line": 50,
+                                "column": 22
+                            },
+                            "line": 50,
+                            "column": 18
+                        },
+                        "post": {
+                            "id": 249,
+                            "line": 50,
+                            "column": 25,
+                            "type": "++_",
+                            "expression": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 248,
+                                "line": 50,
+                                "column": 27
+                            }
+                        },
+                        "block": {
+                            "id": 252,
+                            "statements": [
+                                {
+                                    "id": 251,
+                                    "line": 51,
+                                    "column": 5,
+                                    "type": "function-call",
+                                    "name": "read",
+                                    "arguments": [
+                                        {
+                                            "type": "identifier",
+                                            "value": "i",
+                                            "id": 250,
+                                            "line": 51,
+                                            "column": 12
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": 253,
+                        "line": 55,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 254,
+                            "line": 55,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 255,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 256,
+                                "line": 55,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 259,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 257,
+                                "line": 55,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 258,
+                                "line": 55,
+                                "column": 23
+                            },
+                            "line": 55,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 262,
+                            "type": "+=",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 260,
+                                "line": 55,
+                                "column": 26
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 261,
+                                "line": 55,
+                                "column": 31
+                            },
+                            "line": 55,
+                            "column": 26
+                        },
+                        "block": {
+                            "id": 263,
+                            "statements": []
+                        }
+                    },
+                    {
+                        "id": 264,
+                        "line": 56,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 265,
+                            "line": 56,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 266,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 267,
+                                "line": 56,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 270,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 268,
+                                "line": 56,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 269,
+                                "line": 56,
+                                "column": 23
+                            },
+                            "line": 56,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 273,
+                            "type": "+=",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 271,
+                                "line": 56,
+                                "column": 26
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "k",
+                                "id": 272,
+                                "line": 56,
+                                "column": 31
+                            },
+                            "line": 56,
+                            "column": 26
+                        },
+                        "block": {
+                            "id": 276,
+                            "statements": [
+                                {
+                                    "id": 275,
+                                    "line": 57,
+                                    "column": 5,
+                                    "type": "_++",
+                                    "expression": {
+                                        "type": "identifier",
+                                        "value": "k",
+                                        "id": 274,
+                                        "line": 57,
+                                        "column": 5
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": 277,
+                        "line": 59,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 278,
+                            "line": 59,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 279,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 280,
+                                "line": 59,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 283,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 281,
+                                "line": 59,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 282,
+                                "line": 59,
+                                "column": 23
+                            },
+                            "line": 59,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 286,
+                            "type": "+=",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 284,
+                                "line": 59,
+                                "column": 26
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "k",
+                                "id": 285,
+                                "line": 59,
+                                "column": 31
+                            },
+                            "line": 59,
+                            "column": 26
+                        },
+                        "block": {
+                            "id": 291,
+                            "statements": [
+                                {
+                                    "id": 290,
+                                    "type": "=",
+                                    "left": {
+                                        "type": "identifier",
+                                        "value": "x",
+                                        "id": 287,
+                                        "line": 60,
+                                        "column": 5
+                                    },
+                                    "right": {
+                                        "id": 289,
+                                        "line": 60,
+                                        "column": 9,
+                                        "type": "_++",
+                                        "expression": {
+                                            "type": "identifier",
+                                            "value": "k",
+                                            "id": 288,
+                                            "line": 60,
+                                            "column": 9
+                                        }
+                                    },
+                                    "line": 60,
+                                    "column": 5
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": 292,
+                        "line": 63,
+                        "column": 3,
+                        "type": "for",
+                        "init": {
+                            "id": 293,
+                            "line": 63,
+                            "column": 8,
+                            "type": "variable-declaration",
+                            "name": "i",
+                            "data-type": {
+                                "id": 294,
+                                "name": "int"
+                            },
+                            "is-reference": false,
+                            "is-const": false,
+                            "init": {
+                                "type": "int",
+                                "value": 0,
+                                "id": 295,
+                                "line": 63,
+                                "column": 16
+                            }
+                        },
+                        "condition": {
+                            "id": 298,
+                            "type": "<",
+                            "left": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 296,
+                                "line": 63,
+                                "column": 19
+                            },
+                            "right": {
+                                "type": "identifier",
+                                "value": "n",
+                                "id": 297,
+                                "line": 63,
+                                "column": 23
+                            },
+                            "line": 63,
+                            "column": 19
+                        },
+                        "post": {
+                            "id": 300,
+                            "line": 63,
+                            "column": 26,
+                            "type": "++_",
+                            "expression": {
+                                "type": "identifier",
+                                "value": "i",
+                                "id": 299,
+                                "line": 63,
+                                "column": 28
+                            }
+                        },
+                        "block": {
+                            "id": 311,
+                            "statements": [
+                                {
+                                    "id": 301,
+                                    "line": 64,
+                                    "column": 5,
+                                    "type": "for",
+                                    "init": {
+                                        "id": 302,
+                                        "line": 64,
+                                        "column": 10,
+                                        "type": "variable-declaration",
+                                        "name": "j",
+                                        "data-type": {
+                                            "id": 303,
+                                            "name": "int"
+                                        },
+                                        "is-reference": false,
+                                        "is-const": false,
+                                        "init": {
+                                            "type": "int",
+                                            "value": 0,
+                                            "id": 304,
+                                            "line": 64,
+                                            "column": 18
+                                        }
+                                    },
+                                    "condition": {
+                                        "id": 307,
+                                        "type": "<",
+                                        "left": {
+                                            "type": "identifier",
+                                            "value": "j",
+                                            "id": 305,
+                                            "line": 64,
+                                            "column": 21
+                                        },
+                                        "right": {
+                                            "type": "identifier",
+                                            "value": "n",
+                                            "id": 306,
+                                            "line": 64,
+                                            "column": 25
+                                        },
+                                        "line": 64,
+                                        "column": 21
+                                    },
+                                    "post": {
+                                        "id": 309,
+                                        "line": 64,
+                                        "column": 28,
+                                        "type": "++_",
+                                        "expression": {
+                                            "type": "identifier",
+                                            "value": "i",
+                                            "id": 308,
+                                            "line": 64,
+                                            "column": 30
+                                        }
+                                    },
+                                    "block": {
+                                        "id": 310,
+                                        "statements": []
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
