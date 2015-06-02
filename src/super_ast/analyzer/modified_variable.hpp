@@ -1,3 +1,4 @@
+#pragma once
 #include "super_ast.hpp"
 
 namespace super_ast {
