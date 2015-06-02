@@ -86,7 +86,7 @@ int main(int argc, char** argv) {
             std::string signature, depth, base_cases;
             std::vector<struct RecursivityCheck> rec_checks;
             while (s >> signature >> depth >> base_cases) {
-                struct RecursivityCheck rc(signature,atoi(depth.c_str()),atoi(base_cases.c_str()));
+                struct RecursivityCheck rc(signature,atoi(depth.c_str()), atoi(base_cases.c_str()));
                 rec_checks.push_back(rc);
             }
             
@@ -130,8 +130,10 @@ int main(int argc, char** argv) {
         } else if (args[i] == "--help") {
             help();
             exit(0);
+        } else {
+            help();
+            exit(1);
         }
-
     }
 
 
