@@ -1,8 +1,7 @@
 #include <iostream>
 #include "variable_initialization.hpp"
 
-using namespace super_ast;
-
+namespace super_ast {
 VariableInitialization::VariableInitialization() {
   current_func_ = "main";
 }
@@ -28,4 +27,5 @@ std::vector<Error> VariableInitialization::get_errors() {
 
 void VariableInitialization::Report(const VariableDeclaration& variable) {
   errors_.push_back(Error(variable.line(), current_func_, SHORT_DESC, variable.name() + LONG_DESC));
+}
 }
