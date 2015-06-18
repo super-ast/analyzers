@@ -3,13 +3,12 @@
 #include <vector>
 #include <fstream>
 
-#include "recursivity.cpp"
-#include "simple_fors.hpp"
-#include "liveness.hpp"
-#include "dead_assignation.hpp"
-#include "local_declaration.hpp"
-#include "variable_initialization.hpp"
-
+#include "visitor/recursivity.cpp"
+#include "visitor/simple_fors.hpp"
+#include "visitor/liveness.hpp"
+#include "visitor/dead_assignation.hpp"
+#include "visitor/local_declaration.hpp"
+#include "visitor/variable_initialization.hpp"
 #include "rapidjson/document.h"
 
 void help() {

@@ -1,33 +1,27 @@
-#include "local_declaration.hpp"
+#include <iostream>
+#include <vector>
+#include "super_ast.hpp"
+#include "error.hpp"
+#include "visitor/liveness.hpp"
+#include "visitor/local_declaration.hpp"
 
-using namespace super_ast;
+using namespace std;
 
-LocalDeclaration::LocalDeclaration(Liveness* liveness) {
-  current_func_ = "main";
-  liveness_ = liveness;
-}
+int main() {
+  const super_ast::Block* ast = super_ast::Parse(std::cin);
 
-void LocalDeclaration::Visit(const Node* node) {
-  node->AcceptChildren(*this);
-}
+  super_ast::Liveness liveness;
+  ast->Accept(liveness);
 
-void LocalDeclaration::Visit(const FunctionDeclaration* node) {
-  current_func_ = node->name();
-  node->body().Accept(*this);
-}
-
-// TODO check if lives
-void LocalDeclaration::Visit(const VariableDeclaration* node) {
-  if (not liveness_->isLiveOut(node->id(), node->name()) or
-    not liveness_->isUsedSameScope(node->id(), node->name())) {
-    Report(node->line(), node->name());
+  super_ast::LocalDeclaration local_declaration(&liveness);
+  ast->Accept(local_declaration);
+  
+  vector<Error> err = local_declaration.get_errors();
+  for (Error e : err) {
+    cout << "LINE: " << e.line_number << endl;
+    cout << "FUNCTION: " << e.function << endl;
+    cout << "ERROR: " << e.short_desc << " - " << e.long_desc << endl << endl;
   }
-}
 
-std::vector<Error> LocalDeclaration::get_errors() {
-  return errors_;
-}
-
-void LocalDeclaration::Report(int line, std::string var_name) {
-  errors_.push_back(Error(line, current_func_, SHORT_DESC, var_name + LONG_DESC));
+  return 0;
 }

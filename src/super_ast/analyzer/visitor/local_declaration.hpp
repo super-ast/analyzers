@@ -2,7 +2,7 @@
 
 #include <vector>
 #include "super_ast.hpp"
-#include "error.hpp"
+#include "../error.hpp"
 #include "liveness.hpp"
 
 namespace super_ast {

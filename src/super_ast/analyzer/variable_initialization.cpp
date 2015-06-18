@@ -1,31 +1,23 @@
 #include <iostream>
-#include "variable_initialization.hpp"
+#include <vector>
+#include "super_ast.hpp"
+#include "error.hpp"
+#include "visitor/variable_initialization.hpp"
 
-using namespace super_ast;
+using namespace std;
 
-VariableInitialization::VariableInitialization() {
-  current_func_ = "main";
-}
+int main() {
+  const super_ast::Block* ast = super_ast::Parse(std::cin);
 
-void VariableInitialization::Visit(const Node* node) {
-  node->AcceptChildren(*this);
-}
+  super_ast::VariableInitialization var_ini;
+  ast->Accept(var_ini);
 
-void VariableInitialization::Visit(const FunctionDeclaration* node) {
-  current_func_ = node->name();
-  node->body().Accept(*this);
-}
-
-void VariableInitialization::Visit(const VariableDeclaration* node) {
-  if (not node->HasInitialization()) {
-    Report(*node);
+  vector<Error> err = var_ini.get_errors();
+  for (Error e : err) {
+    cout << "LINE: " << e.line_number << endl;
+    cout << "FUNCTION: " << e.function << endl;
+    cout << "ERROR: " << e.short_desc << " - " << e.long_desc << endl << endl;
   }
-}
 
-std::vector<Error> VariableInitialization::get_errors() {
-  return errors_;
-}
-
-void VariableInitialization::Report(const VariableDeclaration& variable) {
-  errors_.push_back(Error(variable.line(), current_func_, SHORT_DESC, variable.name() + LONG_DESC));
+  return 0;
 }

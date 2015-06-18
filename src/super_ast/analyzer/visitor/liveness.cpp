@@ -1,8 +1,7 @@
 #include <iostream>
 #include "liveness.hpp"
 
-using namespace super_ast;
-
+namespace super_ast {
 Liveness::Liveness() {
   curr_scope_ = 0;
 }
@@ -29,7 +28,7 @@ void Liveness::Visit(const Node* node) {
 void Liveness::Visit(const Block* node) {
   curr_scope_++;
   scope_[node->id()] = curr_scope_;
-  
+
   if (not live_stack_.empty()) {
     live_vars_out_[node->id()] = live_stack_.top();
   }
@@ -39,7 +38,7 @@ void Liveness::Visit(const Block* node) {
 
   std::map<std::string, std::set<int>> vars;
 
-  for (int i = node->statements().size()-1; i >= 0; --i) {
+  for (int i = node->statements().size() - 1; i >= 0; --i) {
     node->statements()[i]->Accept(*this);
   }
 
@@ -53,7 +52,7 @@ void Liveness::Visit(const Block* node) {
 void Liveness::Visit(const For* node) {
   curr_scope_++;
   scope_[node->id()] = curr_scope_;
-  
+
   if (not live_stack_.empty()) {
     live_vars_out_[node->id()] = live_stack_.top();
   }
@@ -77,7 +76,7 @@ void Liveness::Visit(const For* node) {
 
 void Liveness::Visit(const While* node) {
   scope_[node->id()] = curr_scope_;
-  
+
   if (not live_stack_.empty()) {
     live_vars_out_[node->id()] = live_stack_.top();
   }
@@ -98,7 +97,7 @@ void Liveness::Visit(const While* node) {
 
 void Liveness::Visit(const Conditional* node) {
   scope_[node->id()] = curr_scope_;
-  
+
   if (not live_stack_.empty()) {
     live_vars_out_[node->id()] = live_stack_.top();
   }
@@ -119,7 +118,7 @@ void Liveness::Visit(const Conditional* node) {
 
 void Liveness::Visit(const BinaryOperator* node) {
   scope_[node->id()] = curr_scope_;
-  
+
   if (not live_stack_.empty()) {
     live_vars_out_[node->id()] = live_stack_.top();
   }
@@ -149,7 +148,7 @@ void Liveness::Visit(const BinaryOperator* node) {
 
 void Liveness::Visit(const Identifier* node) {
   scope_[node->id()] = curr_scope_;
-  
+
   if (not live_stack_.empty()) {
     live_vars_out_[node->id()] = live_stack_.top();
   }
@@ -165,7 +164,7 @@ void Liveness::Visit(const Identifier* node) {
 
 void Liveness::Visit(const Atom* node) {
   scope_[node->id()] = curr_scope_;
-  
+
   if (not live_stack_.empty()) {
     live_vars_out_[node->id()] = live_stack_.top();
   }
@@ -180,7 +179,7 @@ void Liveness::Visit(const Atom* node) {
 
 void Liveness::Visit(const VariableDeclaration* node) {
   scope_[node->id()] = curr_scope_;
-  
+
   if (not live_stack_.empty()) {
     live_vars_out_[node->id()] = live_stack_.top();
   }
@@ -203,7 +202,7 @@ void Liveness::Visit(const VariableDeclaration* node) {
 
 void Liveness::Visit(const FunctionDeclaration* node) {
   scope_[node->id()] = curr_scope_;
-  
+
   if (not live_stack_.empty()) {
     live_vars_out_[node->id()] = live_stack_.top();
   }
@@ -218,7 +217,7 @@ void Liveness::Visit(const FunctionDeclaration* node) {
     node->parameters()[i]->Accept(*this);
   }
   parameters = false;
-  
+
   std::map<std::string, std::set<int>> vars;
   add_from_top(vars);
   live_stack_.push(vars);
@@ -227,7 +226,7 @@ void Liveness::Visit(const FunctionDeclaration* node) {
 
 void Liveness::Visit(const FunctionCall* node) {
   scope_[node->id()] = curr_scope_;
-  
+
   if (not live_stack_.empty()) {
     live_vars_out_[node->id()] = live_stack_.top();
   }
@@ -289,8 +288,8 @@ void Liveness::add_from_top(std::map<std::string, std::set<int>>& vars) {
   }
 }
 
-void Liveness::remove_live_vars(std::map<std::string, std::set<int>>& vars, 
-    const std::map<std::string, std::set<int>>& vars_to_remove) {
+void Liveness::remove_live_vars(std::map<std::string, std::set<int>>& vars,
+                                const std::map<std::string, std::set<int>>& vars_to_remove) {
 
   for (auto v : vars_to_remove) {
     if (vars.find(v.first) != vars.end()) {
@@ -306,4 +305,5 @@ void Liveness::remove_live_vars(std::map<std::string, std::set<int>>& vars,
     }
   }
 
+}
 }

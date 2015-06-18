@@ -2,7 +2,7 @@
 
 #include <vector>
 #include "super_ast.hpp"
-#include "error.hpp"
+#include "../error.hpp"
 
 // all variables should have an initialization
 namespace super_ast {

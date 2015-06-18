@@ -1,40 +1,27 @@
-#include "dead_assignation.hpp"
+#include <iostream>
+#include <vector>
+#include "super_ast.hpp"
+#include "error.hpp"
+#include "visitor/liveness.hpp"
+#include "visitor/dead_assignation.hpp"
 
-using namespace super_ast;
+using namespace std;
 
-DeadAssignation::DeadAssignation(Liveness* liveness) {
-  current_func_ = "main";
-  liveness_ = liveness;
-}
+int main() {
+  const super_ast::Block* ast = super_ast::Parse(std::cin);
 
-void DeadAssignation::Visit(const Node* node) {
-  node->AcceptChildren(*this);
-}
+  super_ast::Liveness liveness;
+  ast->Accept(liveness);
 
-void DeadAssignation::Visit(const FunctionDeclaration* node) {
-  current_func_ = node->name();
-  node->body().Accept(*this);
-}
-
-void DeadAssignation::Visit(const VariableDeclaration* node) {
-  if (not liveness_->isLiveOut(node->id(), node->name())) {
-    Report(node->line(), node->name());
+  super_ast::DeadAssignation dead_assignation(&liveness);
+  ast->Accept(dead_assignation);
+  
+  vector<Error> err = dead_assignation.get_errors();
+  for (Error e : err) {
+    cout << "LINE: " << e.line_number << endl;
+    cout << "FUNCTION: " << e.function << endl;
+    cout << "ERROR: " << e.short_desc << " - " << e.long_desc << endl << endl;
   }
-}
 
-void DeadAssignation::Visit(const BinaryOperator* node) {
-  if (node->type() == BinaryOperator::Type::ASSIGNMENT) {
-    const Identifier& id = dynamic_cast<const Identifier&>(node->left());
-    if (not liveness_->isLiveOut(node->id(), id.value())) {
-      Report(node->line(), id.value());
-    }
-  }
-}
-
-std::vector<Error> DeadAssignation::get_errors() {
-  return errors_;
-}
-
-void DeadAssignation::Report(int line, std::string var_name) {
-  errors_.push_back(Error(line, current_func_, SHORT_DESC, var_name + LONG_DESC));
+  return 0;
 }

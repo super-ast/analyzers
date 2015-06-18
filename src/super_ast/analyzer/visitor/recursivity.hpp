@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include "super_ast.hpp"
-#include "error.hpp"
+#include "../error.hpp"
 
 #ifndef _RECU_H
 #define _RECU_H

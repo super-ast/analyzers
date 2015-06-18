@@ -11,15 +11,6 @@ include_directories(
     vendor/rapidjson/include
 )
 
-set(SOURCE_FILES
-    src/super_ast/analyzer/error.cpp
-)
-
-#set(gflags_SHARED    FALSE)
-#set(gflags_NOTHREADS FALSE)
-
-#find_package(gflags REQUIRED)
-
 # Override add_executable macro to link libraries automatically
 macro (add_executable _name)
     _add_executable(${ARGV})
@@ -28,33 +19,44 @@ macro (add_executable _name)
     endif()
 endmacro()
 
-add_executable(printer src/super_ast/analyzer/printer.cpp)
-add_executable(grapher src/super_ast/analyzer/grapher.cpp)
-add_executable(useless_conditionals src/super_ast/analyzer/useless_conditionals.cpp)
-add_executable(const_ref_vectors src/super_ast/analyzer/const_ref_vectors.cpp)
-add_executable(check src/super_ast/analyzer/check.cpp
-  src/super_ast/analyzer/function_ids.cpp
-  src/super_ast/analyzer/call_graph.cpp
+add_executable(printer
+  src/super_ast/analyzer/printer.cpp
+  src/super_ast/analyzer/visitor/printer.cpp
+)
+
+add_executable(grapher
+  src/super_ast/analyzer/grapher.cpp
+)
+
+add_executable(check
+  src/super_ast/analyzer/check.cpp
+  src/super_ast/analyzer/visitor/function_ids.cpp
+  src/super_ast/analyzer/visitor/call_graph.cpp
+  src/super_ast/analyzer/visitor/simple_fors.cpp
+  src/super_ast/analyzer/visitor/liveness.cpp
+  src/super_ast/analyzer/visitor/dead_assignation.cpp
+  src/super_ast/analyzer/visitor/local_declaration.cpp
+  src/super_ast/analyzer/visitor/variable_initialization.cpp
+)
+
+add_executable(simple_fors
   src/super_ast/analyzer/simple_fors.cpp
-  src/super_ast/analyzer/liveness.cpp
-  src/super_ast/analyzer/dead_assignation.cpp
-  src/super_ast/analyzer/local_declaration.cpp
+  src/super_ast/analyzer/visitor/simple_fors.cpp
+)
+
+add_executable(variable_initialization
   src/super_ast/analyzer/variable_initialization.cpp
+  src/super_ast/analyzer/visitor/variable_initialization.cpp
 )
-add_executable(simple_fors src/super_ast/analyzer/main_simple_fors.cpp
-  src/super_ast/analyzer/simple_fors.cpp
-)
-add_executable(variable_initialization src/super_ast/analyzer/main_variable_initialization.cpp
-  # dependencies
-  src/super_ast/analyzer/variable_initialization.cpp
-)
-add_executable(local_declaration src/super_ast/analyzer/main_local_declaration.cpp
-  # dependencies
-  src/super_ast/analyzer/liveness.cpp
+
+add_executable(local_declaration
   src/super_ast/analyzer/local_declaration.cpp
+  src/super_ast/analyzer/visitor/liveness.cpp
+  src/super_ast/analyzer/visitor/local_declaration.cpp
 )
-add_executable(dead_assignation src/super_ast/analyzer/main_dead_assignation.cpp
-  # dependencies
-  src/super_ast/analyzer/liveness.cpp
+
+add_executable(dead_assignation
   src/super_ast/analyzer/dead_assignation.cpp
+  src/super_ast/analyzer/visitor/liveness.cpp
+  src/super_ast/analyzer/visitor/dead_assignation.cpp
 )
