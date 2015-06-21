@@ -82,3 +82,7 @@ The input can be found in `lib/base/examples/structs.json`.
 16         password
 17       ithinkthereforeiexist
 ```
+
+## check
+Reads a `super_ast` in `JSON` format and performs validations specified as arguments.
+Run `./check --help` for more information.
