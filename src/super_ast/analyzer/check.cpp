@@ -11,7 +11,7 @@
 #include "visitor/local_declaration.hpp"
 #include "visitor/variable_initialization.hpp"
 #include "rapidjson/document.h"
-#include "../../../lib/base/vendor/rapidjson/include/rapidjson/writer.h"
+#include "rapidjson/writer.h"
 
 namespace {
 typedef std::vector<Error> Errors;
