@@ -121,8 +121,8 @@ std::map<std::string, Option> options = {
  * HELP
  */
 void help() {
-  std::cout << "check" << " " << "<file> [args]" << std::endl;
-  std::cout << "  Reads an AST in JSON format from file and runs the checks specified in args." << std::endl;
+  std::cout << "check" << " " << "[args]" << std::endl;
+  std::cout << "  Reads an AST in JSON format from stdin and runs the checks specified in args." << std::endl;
   std::cout << std::endl;
   std::cout << "  Available arguments:" << std::endl;
 
@@ -141,7 +141,7 @@ void help() {
  * OPTION PARSER
  */
 std::vector<Validator> parse_options(char** argv, int argc) {
-  if (argc < 3) {
+  if (argc < 2) {
     help();
     exit(1);
   }
@@ -149,7 +149,7 @@ std::vector<Validator> parse_options(char** argv, int argc) {
   std::vector<Validator> validators;
   std::vector<std::string> args(argv, argv + argc);
 
-  int i = 2;
+  int i = 1;
   while(i < args.size()) {
     if (args[i] == "--help") {
       help();
@@ -198,19 +198,22 @@ rapidjson::Value error_to_json(const Error& e, rapidjson::Document doc) {
   auto l_desc = e.long_desc.c_str();
   long_d.SetString(rapidjson::StringRef(l_desc));
   v.AddMember("long description", long_d, doc.GetAllocator());
+
   return v;
 }
 
-void append_errors(std::string key, rapidjson::Value& v, std::vector<Error> errors, rapidjson::Document doc) {
+void append_errors(std::string key, rapidjson::Value& v, std::vector<Error> errors, rapidjson::Document& doc) {
   rapidjson::Value k;
   auto k_str = key.c_str();
   k.SetString(rapidjson::StringRef(k_str));
   rapidjson::Value a(rapidjson::kArrayType);
   rapidjson::Document::AllocatorType& allocator = doc.GetAllocator();
+
   for (Error e : errors) {
     //rapidjson::Value e_k = error_to_json(e,doc);
     //a.PushBack(error_to_json(e,doc), allocator);
   }
+
   v.AddMember(k, a, allocator);
 }
 
@@ -225,11 +228,7 @@ void print_errors(std::string key, const Errors& errors) {
 
 int main(int argc, char** argv) {
   const std::vector<Validator>& validators = parse_options(argv, argc);
-
-  std::ifstream in_file;
-  in_file.open(argv[1]);
-
-  const super_ast::Block* ast = super_ast::Parse(in_file);
+  const super_ast::Block* ast = super_ast::Parse(std::cin);
 
   for(const Validator& validator : validators) {
     print_errors(validator.option->name, validator.option->checker(ast, validator.argument));
