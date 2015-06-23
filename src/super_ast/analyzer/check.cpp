@@ -11,6 +11,7 @@
 #include "visitor/local_declaration.hpp"
 #include "visitor/variable_initialization.hpp"
 #include "rapidjson/document.h"
+#include "../../../lib/base/vendor/rapidjson/include/rapidjson/writer.h"
 
 namespace {
 typedef std::vector<Error> Errors;
@@ -109,10 +110,10 @@ std::map<std::string, Option> options = {
         "example: fibonacci 1 2",
         "depth 0 is the min"
     })},
-    {"--fors",          Option("simple fors", (Checker) check_simple_fors, {"checks simple for conditions"})},
-    {"--dead-assign",   Option("dead assignations", (Checker) check_dead_assign, {"checks dead assignations"})},
-    {"--local-decl",    Option("local declarations", (Checker) check_local_decl, {"checks local declarations"})},
-    {"--variable-init", Option("variable initialization", (Checker) check_variable_init,
+    {"--fors",          Option("simple_fors", (Checker) check_simple_fors, {"checks simple for conditions"})},
+    {"--dead-assign",   Option("dead_assignations", (Checker) check_dead_assign, {"checks dead assignations"})},
+    {"--local-decl",    Option("local_declarations", (Checker) check_local_decl, {"checks local declarations"})},
+    {"--variable-init", Option("variable_initialization", (Checker) check_variable_init,
                                {"checks variable initalization errors"})}
 };
 
@@ -179,60 +180,60 @@ std::vector<Validator> parse_options(char** argv, int argc) {
 }
 }
 
-rapidjson::Value error_to_json(const Error& e, rapidjson::Document doc) {
+rapidjson::Value error_to_json(const Error& e, rapidjson::Document::AllocatorType& allocator) {
   rapidjson::Value v(rapidjson::kObjectType);
+
   rapidjson::Value line(e.line_number);
-  v.AddMember("line", line, doc.GetAllocator());
+  v.AddMember("line", line, allocator);
 
-  rapidjson::Value func;
-  auto c_func = e.function.c_str();
-  func.SetString(rapidjson::StringRef(c_func));
-  v.AddMember("function", func, doc.GetAllocator());
+  rapidjson::Value func(e.function.c_str(), allocator);
+  v.AddMember("function", func, allocator);
 
-  rapidjson::Value short_d;
-  auto s_desc = e.short_desc.c_str();
-  short_d.SetString(rapidjson::StringRef(s_desc));
-  v.AddMember("short description", short_d, doc.GetAllocator());
+  rapidjson::Value short_d(e.short_desc.c_str(), allocator);
+  v.AddMember("short_description", short_d, allocator);
 
-  rapidjson::Value long_d;
-  auto l_desc = e.long_desc.c_str();
-  long_d.SetString(rapidjson::StringRef(l_desc));
-  v.AddMember("long description", long_d, doc.GetAllocator());
+  rapidjson::Value long_d(e.long_desc.c_str(), allocator);
+  v.AddMember("long_description", long_d, allocator);
 
   return v;
 }
 
-void append_errors(std::string key, rapidjson::Value& v, std::vector<Error> errors, rapidjson::Document& doc) {
-  rapidjson::Value k;
-  auto k_str = key.c_str();
-  k.SetString(rapidjson::StringRef(k_str));
-  rapidjson::Value a(rapidjson::kArrayType);
-  rapidjson::Document::AllocatorType& allocator = doc.GetAllocator();
+void append_errors(rapidjson::Value& main, std::string errors_key, const std::vector<Error>& errors,
+                   rapidjson::Document::AllocatorType& allocator)
+{
+  rapidjson::Value json_errors(rapidjson::kArrayType);
 
   for (Error e : errors) {
-    //rapidjson::Value e_k = error_to_json(e,doc);
-    //a.PushBack(error_to_json(e,doc), allocator);
+    json_errors.PushBack(error_to_json(e, allocator), allocator);
   }
 
-  v.AddMember(k, a, allocator);
+  rapidjson::Value key(errors_key.c_str(), allocator);
+  main.AddMember(key, json_errors, allocator);
 }
 
-void print_errors(std::string key, const Errors& errors) {
-  std::cout << key << std::endl;
-  for (const Error& e : errors) {
-    std::cout << "  LINE: " << e.line_number << std::endl;
-    std::cout << "  FUNCTION: " << e.function << std::endl;
-    std::cout << "  ERROR: " << e.short_desc << " - " << e.long_desc << std::endl << std::endl;
-  }
+void print_json(const rapidjson::Value& json) {
+  rapidjson::StringBuffer buffer;
+  rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+
+  json.Accept(writer);
+
+  std::cout << buffer.GetString() << std::endl;
 }
 
 int main(int argc, char** argv) {
   const std::vector<Validator>& validators = parse_options(argv, argc);
   const super_ast::Block* ast = super_ast::Parse(std::cin);
 
+  rapidjson::Document json;
+  rapidjson::Document::AllocatorType& allocator = json.GetAllocator();
+
+  rapidjson::Value main(rapidjson::kObjectType);
+
   for(const Validator& validator : validators) {
-    print_errors(validator.option->name, validator.option->checker(ast, validator.argument));
+    append_errors(main, validator.option->name, validator.option->checker(ast, validator.argument), allocator);
   }
+
+  print_json(main);
 
   return 0;
 }
