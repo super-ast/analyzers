@@ -11,6 +11,11 @@ include_directories(
     vendor/rapidjson/include
 )
 
+# To make the binaries static
+#SET(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
+#SET(BUILD_SHARED_LIBRARIES OFF)
+#SET(CMAKE_EXE_LINKER_FLAGS "-static")
+
 # Override add_executable macro to link libraries automatically
 macro (add_executable _name)
     _add_executable(${ARGV})
