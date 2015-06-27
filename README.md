@@ -1,5 +1,5 @@
 # Compiling an analyzer
-  1. Clone this repository: `git clone git@gitlab.com:super_ast/analyzers.git`
+  1. Clone this repository: `git clone git@github.com:super-ast/analyzers.git`
   2. Change the current working directory to the repository location: `cd analyzers`
   3. Initialize and download the repository submodules: `git submodule update --init --recursive`
   4. Create a `build` directory to keep things clean: `mkdir build`
