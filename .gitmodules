@@ -1,6 +1,6 @@
 [submodule "lib/base"]
 	path = lib/base
-	url = git@gitlab.com:super_ast/base.git
+	url = git@github.com:super-ast/base.git
 [submodule "gflags"]
 	path = gflags
 	url = git@github.com:gflags/gflags.git
