@@ -1,5 +1,6 @@
 #pragma once
 #include "super_ast.hpp"
+#include "find_identifier.hpp"
 
 namespace super_ast {
 class ModifiedVariable : public Visitor {
@@ -15,8 +16,6 @@ public:
     root->Accept(modified_variable);
     return modified_variable.is_modified_;
   }
-
-  bool is_modified_;
 
 private:
   void Visit(const super_ast::Node* node) {
@@ -35,34 +34,36 @@ private:
         }
       }
     }
-    if (!is_modified_)
+
+    if (!is_modified_) {
       fcall->AcceptChildren(*this);
+    }
   }
 
   // Search identifier inside unary increment/decrement
   void Visit(const super_ast::UnaryOperator* uop) {
     if (IsUnaryModifying(uop->type())) {
-      if (const Identifier* id = dynamic_cast<const Identifier*>(&uop->expression())) {
-        if (id->value() == name_) {
-          is_modified_ = true;
-        }
-      }
+      FindIdentifier find_id(name_);
+      uop->expression().Accept(find_id);
+      is_modified_ = find_id.found();
     }
-    if (!is_modified_)
+
+    if (!is_modified_) {
       uop->AcceptChildren(*this);
+    }
   }
 
   // Search for the identifier in an assignment
   void Visit(const super_ast::BinaryOperator* bop) {
     if (IsAssign(bop->type())) {
-      if (const Identifier* identifier = dynamic_cast<const Identifier*>(&bop->left())) {
-        if (identifier->value() == name_) {
-          is_modified_ = true;
-        }
-      }
+      FindIdentifier find_id(name_);
+      bop->left().Accept(find_id);
+      is_modified_ = find_id.found();
     }
-    if (!is_modified_)
+
+    if (!is_modified_) {
       bop->AcceptChildren(*this);
+    }
   }
 
   bool IsUnaryModifying(UnaryOperator::Type type) {
@@ -83,7 +84,7 @@ private:
         type == BinaryOperator::Type::ASSIGN_MULTIPLICATION;
   }
 
-  const std::string& name_;
+  std::string name_;
+  bool is_modified_;
 };
 }
-
