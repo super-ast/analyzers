@@ -42,6 +42,7 @@ add_executable(check
   src/super_ast/analyzer/visitor/dead_assignation.cpp
   src/super_ast/analyzer/visitor/local_declaration.cpp
   src/super_ast/analyzer/visitor/variable_initialization.cpp
+  src/super_ast/analyzer/visitor/useless_conditionals.cpp
 )
 
 add_executable(simple_fors

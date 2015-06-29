@@ -10,6 +10,8 @@
 #include "visitor/dead_assignation.hpp"
 #include "visitor/local_declaration.hpp"
 #include "visitor/variable_initialization.hpp"
+#include "visitor/useless_conditionals.hpp"
+
 #include "rapidjson/document.h"
 #include "rapidjson/writer.h"
 
@@ -100,6 +102,13 @@ Errors check_variable_init(const super_ast::Block* ast, const std::string& argum
   return var_ini.get_errors();
 }
 
+Errors check_useless_cond(const super_ast::Block* ast, const std::string& argument) {
+  super_ast::UselessConditionals useless_conditionals;
+  ast->Accept(useless_conditionals);
+
+  return useless_conditionals.errors();
+}
+
 
 /**
  * OPTIONS
@@ -114,7 +123,9 @@ std::map<std::string, Option> options = {
     {"--dead-assign",   Option("dead_assignations", (Checker) check_dead_assign, {"checks dead assignations"})},
     {"--local-decl",    Option("local_declarations", (Checker) check_local_decl, {"checks local declarations"})},
     {"--variable-init", Option("variable_initialization", (Checker) check_variable_init,
-                               {"checks variable initalization errors"})}
+                               {"checks variable initalization errors"})},
+    {"--useless-cond",  Option("useless conditionals", (Checker) check_useless_cond,
+                               {"checks useless conditionals"})}
 };
 
 
