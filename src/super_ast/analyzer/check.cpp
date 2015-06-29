@@ -11,6 +11,7 @@
 #include "visitor/local_declaration.hpp"
 #include "visitor/variable_initialization.hpp"
 #include "visitor/useless_conditionals.hpp"
+#include "visitor/constant_references.hpp"
 
 #include "rapidjson/document.h"
 #include "rapidjson/writer.h"
@@ -102,11 +103,20 @@ Errors check_variable_init(const super_ast::Block* ast, const std::string& argum
   return var_ini.get_errors();
 }
 
+// Useless conditionals
 Errors check_useless_cond(const super_ast::Block* ast, const std::string& argument) {
   super_ast::UselessConditionals useless_conditionals;
   ast->Accept(useless_conditionals);
 
   return useless_conditionals.errors();
+}
+
+// Constant references
+Errors check_const_ref(const super_ast::Block* ast, const std::string& argument) {
+  super_ast::ConstantReferences constant_references;
+  ast->Accept(constant_references);
+
+  return constant_references.errors();
 }
 
 
@@ -125,7 +135,8 @@ std::map<std::string, Option> options = {
     {"--variable-init", Option("variable_initialization", (Checker) check_variable_init,
                                {"checks variable initalization errors"})},
     {"--useless-cond",  Option("useless conditionals", (Checker) check_useless_cond,
-                               {"checks useless conditionals"})}
+                               {"checks useless conditionals"})},
+    {"--const-ref",     Option("constant references", (Checker) check_const_ref, {"checks constant references"})}
 };
 
 

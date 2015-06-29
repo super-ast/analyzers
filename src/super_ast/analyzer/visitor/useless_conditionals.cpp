@@ -1,17 +1,8 @@
 #include "useless_conditionals.hpp"
-#include <iomanip>
 
 namespace super_ast {
 UselessConditionals::UselessConditionals() {
 
-}
-
-void UselessConditionals::Visit(const super_ast::Node* node) {
-  node->AcceptChildren(*this);
-}
-
-void UselessConditionals::Visit(const FunctionDeclaration* function_declaration) {
-  current_function_ = function_declaration->name();
 }
 
 void UselessConditionals::Visit(const Conditional* conditional) {
@@ -22,7 +13,7 @@ void UselessConditionals::Visit(const Conditional* conditional) {
   const Block& else_block = conditional->else_block();
 
   if(HasReturn(then_block) && HasReturn(else_block)) {
-    Report(*conditional, "Unnecessary conditional with returns");
+    Report(*conditional, "Unnecessary conditional", "Unnecessary conditional with returns");
   } else {
     std::string assigned_variable_then;
     std::string assigned_variable_else;
@@ -30,17 +21,9 @@ void UselessConditionals::Visit(const Conditional* conditional) {
     if(HasVariableAssignment(then_block, assigned_variable_then) &&
        HasVariableAssignment(else_block, assigned_variable_else) &&
        assigned_variable_then == assigned_variable_else) {
-      Report(*conditional, "Unnecessary conditional with variable assignment");
+      Report(*conditional,  "Unnecessary conditional", "Unnecessary conditional with variable assignment");
     }
   }
-}
-
-void UselessConditionals::Report(const Statement& statement, std::string message) {
-  errors_.push_back(Error(statement.line(), current_function_, "Unnecessary conditional", message));
-}
-
-std::vector<Error> UselessConditionals::errors() const {
-  return errors_;
 }
 
 bool UselessConditionals::HasReturn(const Block& block) {
